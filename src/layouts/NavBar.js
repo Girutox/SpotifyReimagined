@@ -2,6 +2,8 @@ import TabItem from '../components/TabItem';
 import TabPageArrow from '../components/TabPageArrow';
 import ScrollContainer from 'react-indiana-drag-scroll';
 
+import { scrollToExactElementPositionById } from '../utils/utils';
+
 import { tabData } from '../models/tabData';
 
 import styles from './NavBar.module.scss';
@@ -33,10 +35,7 @@ const NavBar = () => {
       );
     }
 
-    const element = document.getElementById(`tabItem${activeTabId}`);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToExactElementPositionById(activeTabId);
   };
 
   const changeActiveTabHandler = (id) => {
@@ -46,6 +45,8 @@ const NavBar = () => {
         return item;
       })
     );
+
+    scrollToExactElementPositionById(id);
   };
 
   return (
