@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 30px;
+}
+
+.logoGroup {
+  padding-bottom: 80px;
+}
+
+.otherGroup {
+  flex-grow: 1;
+  max-height: 350px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo:hover {
+  transform: scale(1);
+}

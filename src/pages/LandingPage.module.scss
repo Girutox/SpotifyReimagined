@@ -1,0 +1,16 @@
+.maincontainer {
+  display: flex;
+  flex-direction: row;
+
+  min-height: 100vh;
+}
+
+.contentGroup {
+  main {
+    flex-grow: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,0 +1,8 @@
+.image {
+  cursor: pointer;
+  transition: transform 0.20s ease-in;
+}
+
+.image:hover {
+  transform: scale(1.3);
+}
