@@ -1,0 +1,30 @@
+.container {
+  padding: 20px 0 0 0;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .arrowGroup {
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    margin-right: 10px;
+  }
+
+  .tabGroup {
+    flex-grow: 1;
+    width: 1px;
+
+    display: flex;
+    overflow: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar{
+    display: none;
+  }
+}

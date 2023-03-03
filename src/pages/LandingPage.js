@@ -8,13 +8,7 @@ const LandingPage = () => {
       <SideBar />
       <div className={styles.contentGroup}>
         <NavBar />
-        <main>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae amet recusandae iure
-            eveniet? Iure, voluptatum. Sapiente ad nemo deserunt veniam, eveniet itaque tempora
-            voluptatibus, officiis ut obcaecati non tempore aspernatur?
-          </p>
-        </main>
+        <main></main>
       </div>
     </div>
   );
