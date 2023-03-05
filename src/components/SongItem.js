@@ -13,7 +13,7 @@ const SongItem = ({ id, title, views, duration, liked, active, onClick }) => {
       onClick={() => onClick(id)}>
       <div>
         <span className={`${active ? styles.activeTitle : ''}`}>{title}</span>
-        {active && <img src={audioWaveIcon} width={15} height={15} alt="" />}
+        {active && <img src={audioWaveIcon} width={15} height={12} alt="" />}
       </div>
       <div>
         <span>{views}</span>
