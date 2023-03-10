@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import SideBar from '../layouts/SideBar';
 import NavBar from '../layouts/NavBar';
 
@@ -10,7 +12,6 @@ import albumCover from '../assets/images/album-take-my-breath.jpeg';
 
 import styles from './LandingPage.module.scss';
 import SongItem from '../components/SongItem';
-import { useState } from 'react';
 
 const LandingPage = () => {
   const [popularSongsDataLocal, setPopularSongsDataLocal] = useState(popularSongsData);
@@ -40,6 +41,11 @@ const LandingPage = () => {
             <h3>
               FOLLOWING <span>✓</span>
             </h3>
+            <a
+              // eslint-disable-next-line no-undef
+              href={`${process.env.REACT_APP_AUTH_ENDPOINT}?client_id=${process.env.REACT_APP_CLIENT_ID}&scope=${process.env.REACT_APP_SCOPE}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&response_type=${process.env.REACT_APP_RESPONSE_TYPE}`}>
+              Login to Spotify
+            </a>
           </div>
           <div className={styles.musicInfoGroup}>
             <h3>NEW RELEASE</h3>
