@@ -19,7 +19,13 @@ const SideBar = () => {
       <nav className={styles.otherGroup}>
         <a
           // eslint-disable-next-line no-undef
-          href={`${process.env.REACT_APP_AUTH_ENDPOINT}?client_id=${process.env.REACT_APP_CLIENT_ID}&scope=${process.env.REACT_APP_SCOPE}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&response_type=${process.env.REACT_APP_RESPONSE_TYPE}`}>
+          href={`${process.env.REACT_APP_AUTH_ENDPOINT}?client_id=${
+            process.env.REACT_APP_CLIENT_ID
+          }&scope=${process.env.REACT_APP_SCOPE}&redirect_uri=${
+            process.env.NODE_ENV === 'production'
+              ? process.env.REACT_APP_PROD_REDIRECT_URI
+              : process.env.REACT_APP_DEV_REDIRECT_URI
+          }&response_type=${process.env.REACT_APP_RESPONSE_TYPE}`}>
           <ImageHolderT01 image={avatarIcon} />
         </a>
         <ImageHolderT01 image={searchIcon} />
