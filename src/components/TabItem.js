@@ -5,11 +5,24 @@ import serviceIcon from '../assets/images/icons8-services-50.png';
 import audioWaveIcon from '../assets/images/icons8-audio-wave-50.png';
 import radioWaveIcon from '../assets/images/icons8-radio-waves-50.png';
 
+import { useNavigate } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 
 import styles from './TabItem.module.scss';
 
-const TabItem = ({ id, prefixIconType, title, subtitle, sufixIconType, active, onClick }) => {
+const TabItem = ({
+  id,
+  navUrl,
+  prefixIconType,
+  title,
+  subtitle,
+  sufixIconType,
+  active,
+  onClick
+}) => {
+  const navigate = useNavigate();
+
   let prefixImage = '';
   switch (prefixIconType) {
     case 1:
@@ -45,6 +58,8 @@ const TabItem = ({ id, prefixIconType, title, subtitle, sufixIconType, active, o
       id={`tabItem${id}`}
       onClick={() => {
         onClick(id);
+        console.log(navUrl);
+        navigate(navUrl);
       }}
       className={`${styles.container} ${
         active ? styles['container__bg-active'] : styles['container__bg-inactive']
@@ -69,6 +84,7 @@ const TabItem = ({ id, prefixIconType, title, subtitle, sufixIconType, active, o
 };
 TabItem.propTypes = {
   id: PropTypes.number,
+  navUrl: PropTypes.string,
   prefixIconType: PropTypes.number,
   title: PropTypes.string,
   subtitle: PropTypes.string,

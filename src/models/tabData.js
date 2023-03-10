@@ -1,6 +1,7 @@
 export const tabData = [
   {
     id: 1,
+    navUrl: '',
     title: 'ARTIST',
     subtitle: 'THE WEEKND',
     sufixIconType: 1,
@@ -8,6 +9,7 @@ export const tabData = [
   },
   {
     id: 2,
+    navUrl: 'artistPlaylist',
     prefixIconType: 1,
     title: 'PLAYLIST',
     subtitle: "THE WEEKND'S GOLD",
@@ -15,6 +17,7 @@ export const tabData = [
   },
   {
     id: 3,
+    navUrl: 'artistPlaylist',
     prefixIconType: 2,
     title: 'PARTY',
     subtitle: 'Remote Play',
@@ -23,6 +26,7 @@ export const tabData = [
   },
   {
     id: 4,
+    navUrl: 'artistPlaylist',
     prefixIconType: 3,
     title: 'USER',
     subtitle: 'Giancarlo Illescas',
@@ -30,6 +34,7 @@ export const tabData = [
   },
   {
     id: 5,
+    navUrl: 'artistPlaylist',
     prefixIconType: 4,
     title: 'ACCOUNT',
     subtitle: 'Account info',

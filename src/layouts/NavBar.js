@@ -60,6 +60,7 @@ const NavBar = () => {
           <TabItem
             key={item.id}
             id={item.id}
+            navUrl={item.navUrl}
             prefixIconType={item.prefixIconType}
             title={item.title}
             subtitle={item.subtitle}

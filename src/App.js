@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.scss';
 
 // import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -8,12 +9,23 @@ import MainPlayer from './layouts/MainPlayer';
 import LandingPage from './pages/LandingPage';
 
 function App() {
+  const [uriTrack, setUriTrack] = useState('');
+  const [play, setPlay] = useState(false);
+
+  const setUriTrackHandler = (uri) => {
+    setUriTrack(uri);
+  };
+
+  const setPlayerStatusHandler = (value) => {
+    setPlay(value);
+  };
+
   return (
     <div className="App">
       {/* <PerfectScrollbar> */}
-      <LandingPage />
+      <LandingPage onSetUriTrack={setUriTrackHandler} onSetPlayerStatus={setPlayerStatusHandler} />
       <img src={artistImage} alt="" />
-      <MainPlayer />
+      <MainPlayer uriTrack={uriTrack} play={play} />
       {/* </PerfectScrollbar> */}
     </div>
   );

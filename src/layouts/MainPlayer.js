@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 
+import PropTypes from 'prop-types';
+
 import SpotifyPlayer from 'react-spotify-web-playback';
 
 import ImageHolderT02 from '../components/ImageHolderT02';
 import styles from './MainPLayer.module.scss';
 
-const MainPlayer = () => {
+const MainPlayer = ({ uriTrack, play }) => {
   // eslint-disable-next-line no-unused-vars
   const [token, setToken] = useState('');
   useEffect(() => {
@@ -42,9 +44,10 @@ const MainPlayer = () => {
         <div className={styles.playerGroup}>
           <SpotifyPlayer
             token={window.localStorage.getItem('token')}
-            uris={['spotify:track:0VjIjW4GlUZAMYd2vXMi3b']}
+            uris={[uriTrack]}
             initialVolume={0.5}
             hideAttribution={true}
+            play={play}
             styles={{
               trackNameColor: '#fff',
               sliderColor: '#fff',
@@ -71,6 +74,10 @@ const MainPlayer = () => {
       </div>
     </div>
   );
+};
+MainPlayer.propTypes = {
+  uriTrack: PropTypes.string,
+  play: PropTypes.bool
 };
 
 export default MainPlayer;

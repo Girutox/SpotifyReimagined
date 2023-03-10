@@ -17,7 +17,11 @@ const SideBar = () => {
         <ImageHolderT01 className={styles.logo} image={spotifyIcon} />
       </div>
       <nav className={styles.otherGroup}>
-        <ImageHolderT01 image={avatarIcon} />
+        <a
+          // eslint-disable-next-line no-undef
+          href={`${process.env.REACT_APP_AUTH_ENDPOINT}?client_id=${process.env.REACT_APP_CLIENT_ID}&scope=${process.env.REACT_APP_SCOPE}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&response_type=${process.env.REACT_APP_RESPONSE_TYPE}`}>
+          <ImageHolderT01 image={avatarIcon} />
+        </a>
         <ImageHolderT01 image={searchIcon} />
         <ImageHolderT01 image={circleIcon} />
         <ImageHolderT01 image={instagramIcon} />
