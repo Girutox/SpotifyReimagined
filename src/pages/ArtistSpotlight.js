@@ -10,6 +10,8 @@ import albumCover from '../assets/images/album-take-my-breath.jpeg';
 
 import SongItem from '../components/SongItem';
 
+import ScrollContainer from 'react-indiana-drag-scroll';
+
 import styles from './ArtistSpotlight.module.scss';
 
 const ArtistSpotlight = ({ onSetUriTrack, onSetPlayerStatus }) => {
@@ -62,48 +64,50 @@ const ArtistSpotlight = ({ onSetUriTrack, onSetPlayerStatus }) => {
           FOLLOWING <span>✓</span>
         </h3>
       </div>
-      <div className={styles.musicInfoGroup}>
-        <h3>NEW RELEASE</h3>
-        <div className={styles.albumDisplayerGroup}>
-          <img src={albumCover} width={80} height={80} alt="New release album image" />
-          <div className={styles.albumInfo}>
-            <h4>Take My Breath</h4>
-            <h5>The Weeknd</h5>
+      <ScrollContainer className="scroll-container">
+        <div className={styles.musicInfoGroup}>
+          <h3>NEW RELEASE</h3>
+          <div className={styles.albumDisplayerGroup}>
+            <img src={albumCover} width={80} height={80} alt="New release album image" />
+            <div className={styles.albumInfo}>
+              <h4>Take My Breath</h4>
+              <h5>The Weeknd</h5>
+            </div>
           </div>
-        </div>
-        <div className={styles.popularSongsGroup}>
-          <h3>POPULAR SONGS</h3>
-          <div className={styles.songsGroup}>
-            {popularSongsDataLocal?.map((item) => (
-              <SongItem
+          <div className={styles.popularSongsGroup}>
+            <h3>POPULAR SONGS</h3>
+            <div className={styles.songsGroup}>
+              {popularSongsDataLocal?.map((item) => (
+                <SongItem
+                  key={item.id}
+                  id={item.id}
+                  title={item.name}
+                  views={item.popularity}
+                  duration={item.duration_ms}
+                  liked={false}
+                  active={item.active}
+                  uri={item.uri}
+                  onClick={() => changeActiveSongHandler(item.id, item.uri)}
+                />
+              ))}
+            </div>
+          </div>
+          <div className={styles.albumsGroup}>
+            <h3>ALBUMS</h3>
+            {/* <ScrollContainer className={`scroll-container ${styles.albumScrollContainer}`}> */}
+            {albumsData?.map((item) => (
+              <img
                 key={item.id}
-                id={item.id}
-                title={item.name}
-                views={item.popularity}
-                duration={item.duration_ms}
-                liked={false}
-                active={item.active}
-                uri={item.uri}
-                onClick={() => changeActiveSongHandler(item.id, item.uri)}
+                src={require(`../assets/images/${item.albumFileName}`)}
+                width={130}
+                height={130}
+                alt=""
               />
             ))}
+            {/* </ScrollContainer> */}
           </div>
         </div>
-        <div className={styles.albumsGroup}>
-          <h3>ALBUMS</h3>
-          {/* <ScrollContainer className={`scroll-container ${styles.albumScrollContainer}`}> */}
-          {albumsData?.map((item) => (
-            <img
-              key={item.id}
-              src={require(`../assets/images/${item.albumFileName}`)}
-              width={130}
-              height={130}
-              alt=""
-            />
-          ))}
-          {/* </ScrollContainer> */}
-        </div>
-      </div>
+      </ScrollContainer>
     </>
   );
 };

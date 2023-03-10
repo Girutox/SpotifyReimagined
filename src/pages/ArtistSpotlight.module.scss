@@ -27,8 +27,13 @@
   }
 }
 
+.musicInfoGroup::-webkit-scrollbar{
+  display: none;
+}
+
 .musicInfoGroup {
   flex-grow: 1;
+  margin-left: 20px;
 
   color: #3f3f3f;
   padding-right: 50px;
